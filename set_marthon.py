@@ -349,7 +349,6 @@ c = {v for v in a if v in vowels}
 print(c)
 '''
 #Check if a set is a proper superset of another
- status
 
 
 
