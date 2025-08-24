@@ -432,38 +432,74 @@ c=set(a.split())
 d=set(b.split())
 e=c.intersection(d)
 print(e)
+
+# Create a frozenset from a list of numbers
+mylist=[1,2,3,4,5]
+f=frozenset(mylist)
+print(f)
+
+# Check if a frozenset can be modified
+old = frozenset({1, 2, 3, 4, 5})
+new={9,10}
+mod=old.union(new)
+print(mod)
+
+# Use a frozenset as a dictionary key
+fs1=frozenset({1,2,3})
+fs2 = frozenset({3,4,5})
+fs3 = frozenset({1, 2, 3})
+my_dict={
+    fs1:'value for frozenset{1,2,3}',
+    fs2: 'value for frozenset{3,4,5}'
+}
+print(my_dict[fs1])
+print(my_dict[frozenset({3,4,5})])
+print(my_dict[fs3])
+
+# Find the difference between a set and a frozenset
+s = {1, 2, 3}
+r = [1, 7, 8, 9]
+t = frozenset(r)
+p =s.difference(t)
+print(p)
+
+# Store multiple frozenset objects in a set
+a = frozenset({1, 2, 3})
+b = frozenset({4, 9})
+my = {a, b}
+print(my)
+
+# Create a frozenset from the characters of a string
+a = 'llow you to perform various set operations such as '
+b = a.split()
+c = frozenset(b)
+print(c)
+
+# Check if a frozenset is a subset of a set
+a = frozenset({1, 2, 3})
+b = {1, 2, 3, 4, 5}
+c = a.issubset(b)
+print(c)
+
+# Create a frozenset containing tuples
+a=frozenset({(1,2),(3,4)})
+print(a)
+
+# Merge two frozensets into a new frozenset
+a=frozenset({1,2})
+b=frozenset({3,4})
+me=a.union(b)
+print(me)
 '''
-
-
+#Use a set comprehension with a frozenset
+    
 
 
 
 
 
 ''' 
-10..
-
-11.Advanced(frozenset, Performance & Tricky Cases) — 71–100
-
-12.Create a frozenset from a list of numbers.
-
-13.Check if a frozenset can be modified.
-
-14.Use a frozenset as a dictionary key.
-
-15.Find the difference between a set and a frozenset.
-
-16.Store multiple frozenset objects in a set.
-
-17.Create a frozenset from the characters of a string.
-
-18.Check if a frozenset is a subset of a set.
-
-19.Create a frozenset containing tuples.
-
-20.Merge two frozensets into a new frozenset.
-
-21.Use a set comprehension with a frozenset.
+21..
 
 22.Use a set to find the first repeated character in a string.
 
