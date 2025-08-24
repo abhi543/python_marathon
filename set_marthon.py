@@ -347,18 +347,28 @@ a = 'want me to also show you how to do this wit'
 vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
 c = {v for v in a if v in vowels}
 print(c)
-'''
+
 #Check if a set is a proper superset of another
 a={1,2,3,4,5}
 b={2,3}
 print(f"a is superset of b {a.issuperset(b)}")
 
+# Create a set of ASCII codes from characters in a string
+def string_to_ascii_codes(s):
+    return [ord(char) for char in s]
+
+text="crypto"
+ascii_codes=string_to_ascii_codes(text)
+print(ascii_codes)
+
+# Create a set of all lowercase letters from a text
+a = 'CREATE'
+c = {d.lower() for d  in a}
+print(c)
+'''
+
 
 ''' 
-8..
-9.Create a set of ASCII codes from characters in a string.
-10.Create a set of all lowercase letters from a text.
-
 1.Given a set of words, find those that have more than 5 letters.
 
 2.Create a set from a range of numbers skipping multiples of 5.
@@ -411,33 +421,27 @@ print(f"a is superset of b {a.issuperset(b)}")
 
 26.Compare the performance of checking membership in a list vs a set.
 
-Implement a set-like structure using only dictionaries.
+29.Implement a set-like structure using only dictionaries.
 
-Find common divisors of two numbers using sets.
+30.Find common divisors of two numbers using sets.
 
-Create a set of all substrings of a given string.
+31.Create a set of all substrings of a given string.
 
-Given a set of points(x, y), find those in the first quadrant.
+32.Given a set of points(x, y), find those in the first quadrant.
 
-Check if a set of words forms a pangram(contains all letters).
+33.Check if a set of words forms a pangram(contains all letters).
 
-Use sets to detect anagrams between two strings.
+34.Use sets to detect anagrams between two strings.
 
-Count the number of distinct words across multiple files.
+35.Count the number of distinct words across multiple files.
 
-Store sets inside a dictionary for categorizing items.
+36.Store sets inside a dictionary for categorizing items.
 
-Create a set from a generator expression.
+37.Create a set from a generator expression.
 
-Remove all strings shorter than 4 characters from a set.
+38.Remove all strings shorter than 4 characters from a set.
 
-Given a set of numbers, keep only those whose binary representation has exactly two 1s.
+39.Given a set of numbers, keep only those whose binary representation has exactly two 1s.
 
-Create a set of palindromes from a list of words.
-
-Given multiple sets of integers, find those present in exactly two sets.
-
-Implement a custom FrozenDict using frozenset internally.
-
-Use sets to find all unique pairs(a, b) where a + b = target.100 Python Set Problems - Workbook Edition
+40.Create a set of palindromes from a list of words.
 '''
