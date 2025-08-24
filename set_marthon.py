@@ -412,14 +412,36 @@ a = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 b = {'banana', 'elephant', 'banana', 'CREATE'}
 a.update(b)
 print(a)
-'''
+
 # Create a set of numbers that are prime from 1 to 50
+def is_prime(n):
+    if n<2:
+        return False
+    for i in range(2,int(n**0.5)+1):
+        if n%i==0:
+            return False
+        return True
 n = 50
-a = {i for i in range(1, n+1) if n % i == 0}
-print(a)
+a = {i for i in range(2, n+1) if is_prime(i)}
+print(a) 
+
+# Find all letters that appear in either of two sentences but not both
+a = 'only numbers that  a are prime'
+b = 'puts them in a list'
+c=set(a.split())
+d=set(b.split())
+e=c.intersection(d)
+print(e)
+'''
+
+
+
+
+
+
 
 ''' 
-10.Find all letters that appear in either of two sentences but not both.
+10..
 
 11.Advanced(frozenset, Performance & Tricky Cases) — 71–100
 
