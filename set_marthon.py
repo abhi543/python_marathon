@@ -365,28 +365,60 @@ print(ascii_codes)
 a = 'CREATE'
 c = {d.lower() for d  in a}
 print(c)
-'''
 
+# Given a set of words, find those that have more than 5 letters
+a = {'believe', 'it', 'is', 'as', 'simple'}
+b = {w for w in a if len(w) > 5}
+print(b)
+
+# Create a set from a range of numbers skipping multiples of 5
+a = {1, 2, 3, 4, 5, 6, 7, 8, 9,10}
+b={w for w in a if w%5!=0}
+print(b)
+
+# Use a set to remove duplicates from a list of lists(by converting each list to a tuple)
+words = [["apple", "hero"], ["banana", "cat"], [ "elephant", "dog"], ["banana", "cat"], ["banana", "cat"]]
+new = {tuple(st) for st in words}
+print(new)
+
+# Given a list of names, find names starting with a vowel using a set
+a = ['banana', 'elephant', 'banana', 'CREATE']
+b = set(a)
+vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+vowel_names = filter(lambda word:word[0] in vowels,b)
+print(list(vowel_names))
+
+# Create a set of all two-letter combinations from a given string
+import itertools
+a = 'how to build database'
+b = set(a.split())
+combinatins = itertools.combinations(b, 2)
+print(list(combinatins))
+
+# Create a set containing all factors of a number
+n = int(input('enter number which you wanted factor'))
+factors = {i for i in range(1, n+1) if n % i == 0}
+print(factors)
+
+# Given a set of numbers, split it into even and odd sets
+a={1,2,3,4,5,6,7,8,9}
+b={v for v in a if v%2==0}
+c = {v for v in a if v % 2 != 0}
+print(b)
+print(c)
+
+# Merge multiple sets into one using set.update()
+a = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+b = {'banana', 'elephant', 'banana', 'CREATE'}
+a.update(b)
+print(a)
+'''
+# Create a set of numbers that are prime from 1 to 50
+n = 50
+a = {i for i in range(1, n+1) if n % i == 0}
+print(a)
 
 ''' 
-1.Given a set of words, find those that have more than 5 letters.
-
-2.Create a set from a range of numbers skipping multiples of 5.
-
-3.Use a set to remove duplicates from a list of lists(by converting each list to a tuple).
-
-4.Given a list of names, find names starting with a vowel using a set.
-
-5.Create a set of all two-letter combinations from a given string.
-
-6.Create a set containing all factors of a number.
-
-7.Given a set of numbers, split it into even and odd sets.
-
-8.Merge multiple sets into one using set.update().
-
-9.Create a set of numbers that are prime from 1 to 50.
-
 10.Find all letters that appear in either of two sentences but not both.
 
 11.Advanced(frozenset, Performance & Tricky Cases) — 71–100
