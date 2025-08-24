@@ -349,7 +349,9 @@ c = {v for v in a if v in vowels}
 print(c)
 '''
 #Check if a set is a proper superset of another
-
+a={1,2,3,4,5}
+b={2,3}
+print(f"a is superset of b {a.issuperset(b)}")
 
 
 ''' 
