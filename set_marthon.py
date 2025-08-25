@@ -501,15 +501,58 @@ a = 'Here is an example demonstrating the creation the'
 seen = set()
 c = {x for x in a if x in seen or seen.add(x)}
 print(c)
-'''
+
 # Use a set to detect if a list has duplicates
+has_duplicates=lambda lst:len(lst)>len(set(lst))
+print(has_duplicates([1,2,2,3]))
+
+# Given a list of integers, return the missing numbers from a range using sets
+a = [1, 2, 3, 4, 8, 9]
+b = set(a)
+c = {x for x in range(1, 10) if x not in  b}
+print(c)
+
+# Find the symmetric difference between more than two sets.
+a={1,2,3}
+b={3,4,5}
+c=a.symmetric_difference(b)
+print(c)
+
+#Compare the performance of checking membership in a list vs a set
+import time
+lst=list(range(10_000_000))
+st=set(lst)
+target=9_999_999
+start=time.time()
+print(target in lst)
+print("List check",time.time()-start,"seconds")
+
+start=time.time()
+print(target in st)
+print("set check",time.time()-start,"seconds")
+
+# Implement a set-like structure using only dictionaries
 
 
+class MiniSet:
+    def __init__(self, it=None): self._d = {
+    } if it is None else {x: 1 for x in it}
 
+    def add(self, x): self._d[x] = 1
+    def discard(self, x): self._d.pop(x, None)
+    def __contains__(self, x): return x in self._d
+    def __iter__(self): return iter(self._d)
+    def __len__(self): return len(self._d)
+    def __repr__(self): return f"MiniSet({list(self._d)})"
 
-
-
-
+# Find common divisors of two numbers using sets
+a=4
+b=8
+n=0
+c={x for x in range(1,min(a,b)+1) if a%x==0 or b%x==0 }
+print(c)
+'''
+# Create a set of all substrings of a given string
 
 
 
@@ -518,35 +561,14 @@ print(c)
 
 
 ''' 
-.
-
-24.Given a list of integers, return the missing numbers from a range using sets.
-
-25.Find the symmetric difference between more than two sets.
-
-26.Compare the performance of checking membership in a list vs a set.
-
-29.Implement a set-like structure using only dictionaries.
-
-30.Find common divisors of two numbers using sets.
-
-31.Create a set of all substrings of a given string.
-
+31..
 32.Given a set of points(x, y), find those in the first quadrant.
-
 33.Check if a set of words forms a pangram(contains all letters).
-
 34.Use sets to detect anagrams between two strings.
-
 35.Count the number of distinct words across multiple files.
-
 36.Store sets inside a dictionary for categorizing items.
-
 37.Create a set from a generator expression.
-
 38.Remove all strings shorter than 4 characters from a set.
-
 39.Given a set of numbers, keep only those whose binary representation has exactly two 1s.
-
-40.Create a set of palindromes from a list of words.
+1.Create a set of palindromes from a list of words.
 '''
