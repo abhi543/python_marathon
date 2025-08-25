@@ -490,20 +490,35 @@ a=frozenset({1,2})
 b=frozenset({3,4})
 me=a.union(b)
 print(me)
-'''
+
 #Use a set comprehension with a frozenset
-    
+numbers=[1,2,3,4,5]    
+frozen_set=[{x**2 for x in numbers if x%2==0}]
+print(frozen_set)
+
+# Use a set to find the first repeated character in a string
+a = 'Here is an example demonstrating the creation the'
+seen = set()
+c = {x for x in a if x in seen or seen.add(x)}
+print(c)
+'''
+# Use a set to detect if a list has duplicates
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 ''' 
-21..
-
-22.Use a set to find the first repeated character in a string.
-
-23.Use a set to detect if a list has duplicates.
+.
 
 24.Given a list of integers, return the missing numbers from a range using sets.
 
