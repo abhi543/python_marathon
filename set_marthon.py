@@ -551,8 +551,34 @@ b=8
 n=0
 c={x for x in range(1,min(a,b)+1) if a%x==0 or b%x==0 }
 print(c)
-'''
+
 # Create a set of all substrings of a given string
+s="abc"
+n=len(s)
+all_substrings={s[i:j] for i in range(n) for j in range(i +1,n+1)}
+print(all_substrings)
+
+# Given a set of points(x, y), find those in the first quadrant
+points={(1,2),(-2,3),(3,-9),(-1,-8)}
+first_quadrant={(x,y) for (x,y) in points if x>0 and y>0}
+print(first_quadrant)
+
+# Check if a set of words forms a pangram(contains all letters)
+import string
+def is_pangram(words):
+    letters = {c.lower() for w in words for c in w if c.isalpha()}
+    return letters >= set(string.ascii_lowercase)
+words = ['Pack', 'my', 'box', 'with', 'five', 'dozen', 'liquor', 'jugs']
+print(is_pangram(words))
+
+# Use sets to detect anagrams between two strings
+a = 'cat'
+b = 'act'
+if sorted(a) == sorted(b):
+    print('anagram')
+else:
+    print('none')
+'''
 
 
 
@@ -561,14 +587,10 @@ print(c)
 
 
 ''' 
-31..
-32.Given a set of points(x, y), find those in the first quadrant.
-33.Check if a set of words forms a pangram(contains all letters).
-34.Use sets to detect anagrams between two strings.
 35.Count the number of distinct words across multiple files.
 36.Store sets inside a dictionary for categorizing items.
 37.Create a set from a generator expression.
 38.Remove all strings shorter than 4 characters from a set.
-39.Given a set of numbers, keep only those whose binary representation has exactly two 1s.
+2.Given a set of numbers, keep only those whose binary representation has exactly two 1s.
 1.Create a set of palindromes from a list of words.
 '''
