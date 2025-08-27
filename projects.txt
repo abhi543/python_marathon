@@ -1,0 +1,179 @@
+You are tasked with helping a delivery company optimize their delivery routes in a city. 
+The city’s road network is represented as a weighted undirected graph, where nodes are
+ intersections, edges are roads, and weights are the time (in minutes) to travel between
+  intersections. Your goal is to write a Python program that finds 
+  the shortest path (in terms of total travel time) between 
+a starting intersection and a destination intersection using Dijkstra’s algorithm.
+
+
+
+You are building a text formatting tool that needs to split a sentence into multiple lines for display on a device with a limited character width per line. Each word in the sentence has a length, and you must split the sentence into lines such that:
+
+Each line can hold at most max_width characters (including spaces).
+Words cannot be split across lines.
+The cost of a line is calculated as (max_width - line_length)², where line_length is the total number of characters in the words plus one space between each pair of words (no trailing space at the end of a line).
+The total cost is the sum of the costs of all lines except the last line (the last line has no cost).
+
+Your task is to write a Python function that computes the minimum total cost to split a sentence into valid lines and returns the list of words in each line.
+Input:
+
+A string sentence containing words separated by single spaces.
+An integer max_width representing the maximum number of characters per line.
+
+Output:
+
+A tuple (min_cost, lines), where:
+
+min_cost is the minimum total cost (sum of costs of all lines except the last).
+lines is a list of lists, where each inner list contains the words in a line.
+
+
+
+Constraints:
+
+The sentence contains 1 to 1000 words.
+Each word contains 1 to max_width characters.
+max_width is a positive integer.
+Words are separated by single spaces, and the sentence has no leading/trailing spaces.
+All words can fit within max_width individually.
+
+
+Problem: Task Scheduler with Cooldown
+You are designing a task scheduler for a single-core CPU that processes tasks with a cooldown constraint. The CPU must process a list of tasks, where each task is represented by a string (e.g., "A", "B"). Each task takes exactly 1 unit of time to complete, and identical tasks (e.g., two "A" tasks) must have a cooldown period of at least n time units between their executions to avoid overheating. During cooldown periods, the CPU can either process another task or remain idle.
+Your goal is to write a Python function that computes the minimum total time required to complete all tasks, including any idle time needed to respect the cooldown constraint, and returns the schedule as a list of tasks and idle slots (represented by "_").
+Input:
+
+A list of strings tasks, where each string represents a task (e.g., ["A", "A", "B", "C"]).
+An integer n, representing the minimum cooldown period between identical tasks.
+
+Output:
+
+A tuple (total_time, schedule), where:
+
+total_time is the minimum number of time units needed to complete all tasks.
+schedule is a list of strings representing the order of tasks and idle slots (e.g., ["A", "_", "B", "A"]).
+
+
+
+Constraints:
+
+The number of tasks is between 1 and 10,000.
+Tasks are represented by uppercase letters (A-Z).
+The cooldown period n is a non-negative integer.
+Each task takes exactly 1 time unit to execute.
+
+Problem: Optimal Team Formation
+You are organizing a hackathon and need to form teams from a pool of participants. Each participant has a skill level (an integer) and a preferred programming language (a string). You want to form teams of exactly k participants such that:
+
+Each team must include at least one participant proficient in each required programming language (given as a list).
+The total skill level of the team (sum of individual skill levels) should be maximized.
+No participant can be assigned to more than one team.
+
+Your task is to write a Python function that finds the optimal team of k participants that satisfies the language requirements and maximizes the total skill level.
+Input:
+
+A list of dictionaries participants, where each dictionary contains:
+
+"name": A string representing the participant's name.
+"skill": An integer representing their skill level.
+"language": A string representing their preferred programming language.
+
+
+An integer k, the size of each team.
+A list of strings required_languages, the programming languages that must be represented in the team.
+
+Output:
+
+A tuple (max_skill, team), where:
+
+max_skill is the maximum total skill level achievable.
+team is a list of participant names forming the optimal team.
+
+
+If no valid team can be formed, return (0, []).
+
+Constraints:
+
+The number of participants is between 1 and 100.
+Skill levels are positive integers between 1 and 1000.
+k is a positive integer, and k ≤ number of participants.
+required_languages contains 1 to 10 distinct programming languages.
+Each participant has exactly one preferred language.
+
+
+Here's a new Python problem focused on **bit manipulation** and **optimization**, designed to challenge your ability to handle binary data and optimize for efficiency in a resource-constrained environment.
+
+---
+
+### Problem: Binary Signal Compression
+
+You are developing a system to compress a binary signal transmitted by a satellite. The signal is a sequence of bits (0s and 1s), and you need to compress it by encoding consecutive runs of the same bit value. Each run is represented by its bit value (0 or 1) and the number of consecutive occurrences (run length). To optimize storage, you encode the run lengths using a variable-length binary encoding, and you want to minimize the total number of bits in the compressed signal. Additionally, the decoder can only handle run lengths up to a maximum value `max_run`.
+
+Your task is to write a Python function that compresses the binary signal and returns the minimum number of bits required for the compressed representation, along with the sequence of run lengths used.
+
+#### Input:
+- A string `signal` containing only '0' and '1' characters, representing the binary signal.
+- An integer `max_run`, the maximum allowed run length for any single run (1 ≤ `max_run` ≤ length of signal).
+
+#### Output:
+- A tuple `(min_bits, run_lengths)`, where:
+  - `min_bits` is the minimum number of bits required to encode the signal, accounting for both the bit values and their run lengths.
+  - `run_lengths` is a list of tuples `(bit, length)`, where `bit` is '0' or '1' and `length` is the number of consecutive occurrences (each ≤ `max_run`), representing the runs in order.
+- If no valid compression is possible, return `(0, [])`.
+
+#### Encoding Rules:
+- Each run is encoded as:
+  - 1 bit to indicate the bit value (0 for '0', 1 for '1').
+  - A variable-length encoding for the run length, using the minimum number of bits needed to represent values from 1 to `max_run`. Specifically, use `ceil(log2(max_run))` bits for each run length.
+- The compressed signal concatenates all run encodings in sequence.
+- Runs must cover the entire signal without gaps or overlaps, and each run length must be at most `max_run`.
+
+#### Constraints:
+- The length of `signal` is between 1 and 10^4.
+- `max_run` is a positive integer between 1 and the length of `signal`.
+- The signal contains only '0' and '1' characters.
+
+#### Example:
+```python
+signal = "111000"
+max_run = 3
+```
+
+**Expected Output:**
+```python
+(6, [('1', 3), ('0', 3)])
+```
+
+**Explanation:**
+- Signal: "111000".
+- `max_run = 3`, so each run length is at most 3.
+- Encoding details:
+  - Need `ceil(log2(3)) = 2` bits to encode run lengths (1 to 3, encoded as 01, 10, 11 in binary).
+  - One possible compression: Split into two runs: "111" (run of 1s, length 3) and "000" (run of 0s, length 3).
+  - Encoding:
+    - Run 1: Bit value '1' (1 bit: 1), length 3 (2 bits: 11) → 3 bits (1 + 11).
+    - Run 2: Bit value '0' (1 bit: 0), length 3 (2 bits: 11) → 3 bits (0 + 11).
+    - Total: 3 + 3 = 6 bits.
+- Other possible splits (e.g., [('1', 2), ('1', 1), ('0', 3)] or [('1', 3), ('0', 2), ('0', 1)]) also use 6 bits or more, so this is optimal.
+- Output: `(6, [('1', 3), ('0', 3)])`.
+
+#### Challenge:
+Implement a function `compress_signal(signal, max_run)` that returns `(min_bits, run_lengths)` as described. Use a greedy approach or dynamic programming to minimize the number of bits by optimizing run length choices.
+
+#### Hints:
+- Calculate the number of bits needed for run lengths: `ceil(log2(max_run))`.
+- Use a greedy approach to group consecutive identical bits into runs, splitting when a run exceeds `max_run`.
+- For each run of identical bits, try different ways to split it into lengths ≤ `max_run` to minimize the number of runs (since each run adds 1 bit for the bit value plus the run length bits).
+- Alternatively, use dynamic programming where `dp[i]` represents the minimum bits needed to compress `signal[0:i]`, considering valid run splits.
+- Track the run lengths used to reconstruct the optimal sequence.
+- Handle edge cases, such as when `signal` is all one bit value or when `max_run = 1`.
+
+---
+
+This problem tests:
+- Bit manipulation and binary encoding.
+- Greedy algorithms or dynamic programming for optimization.
+- Efficient handling of string parsing and run-length encoding.
+- Real-world data compression modeling.
+
+Would you like a sample solution, additional hints, or clarification on any part of the problem?

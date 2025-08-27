@@ -578,19 +578,40 @@ if sorted(a) == sorted(b):
     print('anagram')
 else:
     print('none')
+
+# Store sets inside a dictionary for categorizing items.
+categories={
+    "fruits":set(),
+    "vegetables":set(),
+    "drinks":set()
+}
+categories["fruits"].add("apple")
+categories["fruits"].add("mango")
+categories["vegetables"].add("onion")
+categories["drinks"].add("pepsi")
+categories["drinks"].add("coke")
+print(categories)
+
+
+# Create a set from a generator expression
+squares = set(x*x for x in range(10))
+print(squares)
+
+# Remove all strings shorter than 4 characters from a set
+a = {'The', 'donor' ,'receives' ,'hormone' ,'injections'}
+filtered={s for s in a if len(a)>4}
+print(filtered)
+
+# Given a set of numbers, keep only those whose binary representation has exactly two 1s
+numbers={1,2,3,4,5,6,7,8,9}
+filtered={n for n in numbers if bin(n).count("1")==2}
+print(filtered)
 '''
-
-
-
-
-
-
+# Create a set of palindromes from a list of words.
+words=['level','madam']
+pali={w for w in words if w==w[::-1]}
+print(pali)
 
 ''' 
-35.Count the number of distinct words across multiple files.
-36.Store sets inside a dictionary for categorizing items.
-37.Create a set from a generator expression.
-38.Remove all strings shorter than 4 characters from a set.
-2.Given a set of numbers, keep only those whose binary representation has exactly two 1s.
-1.Create a set of palindromes from a list of words.
+THANKS ABHISHEK FOR COMPLETING THIS CHALLENGE
 '''
